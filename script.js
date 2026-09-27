@@ -1,4 +1,4 @@
-const works = [
+﻿const works = [
   "schoolgirl illustration.JPG",
   "Jinx from Arcane illustration.JPG",
   "blue eyes illustration.JPG",
@@ -15,10 +15,10 @@ const works = [
 }));
 
 const merchWorks = [
-  { file: "Intersect.png", title: "white t-shirt print" },
-  { file: "Intersect1.png", title: "black t-shirt print" },
-  { file: "Intersect3.png", title: "white t-shirt print 2" },
-  { file: "Intersect4.png", title: "black t-shirt print 2" }
+  { file: "Intersect.jpg", title: "white t-shirt print" },
+  { file: "Intersect1.jpg", title: "black t-shirt print" },
+  { file: "Intersect3.jpg", title: "white t-shirt print 2" },
+  { file: "Intersect4.jpg", title: "black t-shirt print 2" }
 ].map((item) => ({
   ...item,
   src: `assets/images/${item.file}`
@@ -228,3 +228,5 @@ document.addEventListener("keydown", (event) => {
 
 renderSlides();
 renderMerchSlides();
+
+

@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
   font-family: "GothicCustom";
   src: url("assets/fonts/GOTHIC.TTF") format("truetype");
   font-weight: 400;
@@ -360,7 +360,7 @@ main {
   left: 21%;
   width: 60%;
   height: 640px;
-  background: url("assets/images/image 355.png") center / contain no-repeat;
+  background: url("assets/images/image 355.jpg") center / contain no-repeat;
 }
 
 .work-section h2 {
@@ -1256,3 +1256,5 @@ main {
     padding: 14px;
   }
 }
+
+
