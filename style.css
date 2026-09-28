@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
   font-family: "GothicCustom";
   src: url("assets/fonts/GOTHIC.TTF") format("truetype");
   font-weight: 400;
@@ -360,7 +360,7 @@ main {
   left: 21%;
   width: 60%;
   height: 640px;
-  background: url("assets/images/image 355.jpg") center / contain no-repeat;
+  background: url("assets/images/image 355.png") center / contain no-repeat;
 }
 
 .work-section h2 {
@@ -900,17 +900,18 @@ main {
   }
 
   .poster-collage {
-    min-height: 360px;
+    min-height: clamp(300px, 46vw, 360px);
   }
 
   .hero-cross {
-    width: 118%;
+    top: 6px;
+    width: min(128%, 820px);
   }
 
   .signature-hero {
     right: -12%;
     left: -12%;
-    top: 225px;
+    top: clamp(190px, 30vw, 225px);
     font-size: clamp(70px, 20vw, 120px);
   }
 
@@ -921,7 +922,7 @@ main {
   }
 
   .hero-portrait {
-    min-height: 420px;
+    min-height: auto;
   }
 
   .hero-portrait h1,
@@ -934,10 +935,12 @@ main {
   }
 
   .hero-portrait img {
-    top: 62px;
-    left: 50%;
-    width: 350px;
-    transform: translateX(-50%);
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(350px, 86vw);
+    margin: 18px auto 0;
+    transform: none;
   }
 
   .hero-text,
@@ -993,27 +996,45 @@ main {
 
   .work-stage {
     margin-top: 42px;
-    min-height: 510px;
+    min-height: 500px;
   }
 
   .work-slider {
     width: 100%;
-    height: 500px;
+    height: 480px;
   }
 
-  .work-slide,
-  .work-slide.is-prev,
-  .work-slide.is-next {
-    width: 74%;
-    height: 410px;
+  .work-slide {
+    width: 40%;
+    height: 68%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.82);
+    pointer-events: none;
   }
 
   .work-slide.is-active {
-    width: 84%;
-    height: 500px;
+    width: min(72%, 430px);
+    height: 100%;
     opacity: 1;
+    pointer-events: auto;
+  }
+
+  .work-slide.is-prev {
+    left: 14%;
+    width: 46%;
+    height: 72%;
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(0.92);
+    pointer-events: auto;
+  }
+
+  .work-slide.is-next {
+    left: 86%;
+    width: 46%;
+    height: 72%;
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(0.92);
+    pointer-events: auto;
   }
 
   .slider-btn {
@@ -1030,7 +1051,9 @@ main {
   }
 
   .work-caption {
+    min-height: 2.3em;
     font-size: 30px;
+    line-height: 1.15;
   }
 
   .merch-note {
@@ -1039,26 +1062,44 @@ main {
   }
 
   .merch-stage {
-    min-height: 540px;
+    min-height: 520px;
   }
 
   .merch-slider {
-    height: 520px;
+    height: 500px;
   }
 
-  .merch-slide,
-  .merch-slide.is-prev,
-  .merch-slide.is-next {
-    width: 72%;
-    height: 430px;
+  .merch-slide {
+    width: 40%;
+    height: 70%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.84);
+    pointer-events: none;
   }
 
   .merch-slide.is-active {
-    width: 84%;
-    height: 520px;
+    width: min(70%, 410px);
+    height: 100%;
     opacity: 1;
+    pointer-events: auto;
+  }
+
+  .merch-slide.is-prev {
+    left: 14%;
+    width: 44%;
+    height: 74%;
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(0.9);
+    pointer-events: auto;
+  }
+
+  .merch-slide.is-next {
+    left: 86%;
+    width: 44%;
+    height: 74%;
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(0.9);
+    pointer-events: auto;
   }
 
   .skills-section {
@@ -1072,7 +1113,14 @@ main {
 
   .skills-list {
     margin-top: 30px;
+    padding-left: 24px;
     font-size: 22px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .skills-list li + li {
+    margin-top: 8px;
   }
 
   .languages-block p,
@@ -1111,8 +1159,9 @@ main {
   }
 
   .contacts-section {
-    min-height: 720px;
+    min-height: auto;
     padding-top: 100px;
+    padding-bottom: 80px;
   }
 
   .contacts-section h2 {
@@ -1120,12 +1169,18 @@ main {
   }
 
   .contacts-layout {
-    min-height: 500px;
+    display: grid;
+    justify-items: center;
+    gap: 28px;
+    min-height: 0;
+    padding-top: 24px;
   }
 
   .contact-actions {
-    top: 270px;
-    left: 0;
+    position: relative;
+    top: auto;
+    left: auto;
+    align-items: center;
   }
 
   .contact-link {
@@ -1133,20 +1188,28 @@ main {
   }
 
   .contact-arrow {
-    top: 36px;
+    position: relative;
+    top: auto;
+    left: auto;
     width: 110px;
+    transform: none;
   }
 
   .contact-person {
-    right: -40px;
-    width: 360px;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(360px, 88vw);
   }
 
   .signature-contact {
-    right: -18px;
-    bottom: 82px;
-    left: -18px;
-    width: calc(100% + 36px);
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    margin-top: -56px;
+    font-size: clamp(64px, 18vw, 130px);
   }
 }
 
@@ -1156,22 +1219,22 @@ main {
   }
 
   .poster-collage {
-    min-height: 295px;
+    min-height: 250px;
   }
 
   .hero-cross {
-    width: 132%;
+    width: 140%;
   }
 
   .signature-hero {
     right: -22%;
     left: -22%;
-    top: 188px;
+    top: clamp(150px, 39vw, 188px);
     font-size: clamp(64px, 22vw, 96px);
   }
 
   .hero-portrait {
-    min-height: 360px;
+    min-height: auto;
   }
 
   .hero-portrait h1,
@@ -1180,7 +1243,7 @@ main {
   }
 
   .hero-portrait img {
-    width: 315px;
+    width: min(315px, 88vw);
   }
 
   .hero-text,
@@ -1196,25 +1259,49 @@ main {
   }
 
   .work-slider {
-    height: 410px;
+    height: 390px;
   }
 
   .work-slide.is-active {
-    width: 82%;
-    height: 410px;
+    width: 76%;
+    height: 100%;
+  }
+
+  .work-slide.is-prev {
+    left: 10%;
+    width: 48%;
+    height: 68%;
+  }
+
+  .work-slide.is-next {
+    left: 90%;
+    width: 48%;
+    height: 68%;
   }
 
   .merch-stage {
-    min-height: 470px;
+    min-height: 460px;
   }
 
   .merch-slider {
-    height: 450px;
+    height: 430px;
   }
 
   .merch-slide.is-active {
-    width: 86%;
-    height: 450px;
+    width: 78%;
+    height: 100%;
+  }
+
+  .merch-slide.is-prev {
+    left: 10%;
+    width: 48%;
+    height: 70%;
+  }
+
+  .merch-slide.is-next {
+    left: 90%;
+    width: 48%;
+    height: 70%;
   }
 
   .work-caption {
@@ -1240,12 +1327,12 @@ main {
   }
 
   .contact-person {
-    right: -86px;
-    width: 335px;
+    right: auto;
+    width: min(335px, 88vw);
   }
 
   .contact-actions {
-    top: 248px;
+    top: auto;
   }
 
   .contact-link {
@@ -1256,5 +1343,3 @@ main {
     padding: 14px;
   }
 }
-
-

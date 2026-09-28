@@ -5,6 +5,7 @@
   "cigarettes illustration.JPG",
   "Ellie from the last of us II portrait.JPG",
   "one colour sketch illustration.JPG",
+  "one colour pink sketch illustration.JPG",
   "scream fan art.JPG",
   "adapted illustration for clothes items.JPG",
   "obsessed vampire illustration.JPG"
