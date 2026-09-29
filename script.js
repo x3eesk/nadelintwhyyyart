@@ -1,4 +1,8 @@
-﻿const works = [
+const workTitles = {
+  "adapted illustration for clothes items.JPG": "succubus illustration for clothing items"
+};
+
+const works = [
   "schoolgirl illustration.JPG",
   "Jinx from Arcane illustration.JPG",
   "blue eyes illustration.JPG",
@@ -12,7 +16,7 @@
 ].map((file) => ({
   file,
   src: `assets/images/${file}`,
-  title: file.replace(/\.[^.]+$/, "").replace(/\s+/g, " ").trim()
+  title: workTitles[file] || file.replace(/\.[^.]+$/, "").replace(/\s+/g, " ").trim()
 }));
 
 const merchWorks = [
@@ -38,6 +42,8 @@ const merchNextButton = document.querySelector(".merch-btn-next");
 const imageModal = document.querySelector("#imageModal");
 const modalImage = document.querySelector("#modalImage");
 const imageModalTitle = document.querySelector("#imageModalTitle");
+const socialToggle = document.querySelector(".contact-social-toggle");
+const socialLinks = document.querySelector("#socialLinks");
 
 let activeIndex = 0;
 let activeMerchIndex = 0;
@@ -169,6 +175,14 @@ function closeMenu() {
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
+function setSocialLinksOpen(opened) {
+  if (!socialToggle || !socialLinks) return;
+
+  socialLinks.hidden = !opened;
+  socialLinks.classList.toggle("is-open", opened);
+  socialToggle.setAttribute("aria-expanded", String(opened));
+}
+
 menuToggle.addEventListener("click", () => {
   const opened = body.classList.toggle("menu-open");
   menuToggle.setAttribute("aria-expanded", String(opened));
@@ -184,6 +198,12 @@ prevButton.addEventListener("click", () => moveSlider(-1));
 nextButton.addEventListener("click", () => moveSlider(1));
 merchPrevButton.addEventListener("click", () => moveMerchSlider(-1));
 merchNextButton.addEventListener("click", () => moveMerchSlider(1));
+
+if (socialToggle && socialLinks) {
+  socialToggle.addEventListener("click", () => {
+    setSocialLinksOpen(socialLinks.hidden);
+  });
+}
 
 slider.addEventListener("click", (event) => {
   const slide = event.target.closest(".work-slide");
@@ -215,6 +235,7 @@ document.addEventListener("keydown", (event) => {
       closeModal();
       return;
     }
+    setSocialLinksOpen(false);
     closeMenu();
   }
 
@@ -227,7 +248,12 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+document.addEventListener("click", (event) => {
+  if (!socialLinks || socialLinks.hidden) return;
+  if (event.target.closest(".contact-actions")) return;
+
+  setSocialLinksOpen(false);
+});
+
 renderSlides();
 renderMerchSlides();
-
-
